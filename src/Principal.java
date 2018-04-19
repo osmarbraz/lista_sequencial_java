@@ -26,9 +26,9 @@ public class Principal {
     }
 
     /**
-     * Insere um elemento em uma posição especifica da lista.
+     * Insere um Nó em uma posição especifica da lista.
      *
-     * @param _lista Lista dos elementos.
+     * @param _lista Lista dos nós.
      * @param _novo Novo valor a ser inserido.
      * @param _k Posição a ser inserida o valor.
      * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
@@ -37,13 +37,13 @@ public class Principal {
         if (n < TAMANHO_LISTA) {
             //Verifica se a posição está no intervalo de valores da lista.
             if ((_k >= 0) && (_k <= n)) {
-                //Desloca os elementos do fim até a posição k
+                //Desloca os Nós do fim até a posição k
                 for (int i = n - 1; i >= _k; i--) {
                     _lista[i + 1] = _lista[i];
                 }
                 //Insere o novo valor na posição k.
                 _lista[_k] = _novo;
-                //Incrementa a quantidade de elementos.
+                //Incrementa a quantidade de Nós.
                 n = n + 1;
                 return true;
             } else {
@@ -57,9 +57,9 @@ public class Principal {
     }
 
     /**
-     * Insere um elemento no início da lista.
+     * Insere um Nó no início da lista.
      *
-     * @param _lista Lista dos elementos.
+     * @param _lista Lista dos Nós.
      * @param _novo Novo valor a ser inserido.
      * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
      */
@@ -68,9 +68,9 @@ public class Principal {
     }
 
     /**
-     * Insere um elemento no final da lista.
+     * Insere um Nó no final da lista.
      *
-     * @param _lista Lista dos elementos.
+     * @param _lista Lista dos Nós.
      * @param _novo Novo valor a ser inserido.
      * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
      */
@@ -79,10 +79,10 @@ public class Principal {
     }
 
     /**
-     * Inclui de forma ordenado um elemento na lista levando em consideração o
+     * Inclui de forma ordenado um Nó na lista levando em consideração o
      * seu valor.
      *
-     * @param _lista Lista dos elementos.
+     * @param _lista Lista dos Nós.
      * @param _novo Novo valor a ser inserido.
      *
      * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
@@ -106,21 +106,21 @@ public class Principal {
     }
 
     /**
-     * Excluir um elemento da lista pela posição.
+     * Excluir um Nó da lista pela posição.
      *
      * @param _lista Lista com os valores.
-     * @param _k Posição do elemento a ser excluído da lista.
+     * @param _k Posição do Nó a ser excluído da lista.
      * @return Verdadeiro ou falso se excluiu o valor da posição.
      */
     public static boolean excluirPosicao(int[] _lista, int _k) {
         if (n != 0) {
-            //Verifica se a posição está no intervalo de elementos da lista.
+            //Verifica se a posição está no intervalo de Nós da lista.
             if ((_k >= 0) && (_k < n)) {
-                //Desloca os elementos do fim até a posição k da lista.
+                //Desloca os Nós do fim até a posição k da lista.
                 for (int i = _k; i < n; i++) {
                     _lista[i] = _lista[i + 1];
                 }
-                //Decrementa a quantidade de elementos da lista.
+                //Decrementa a quantidade de Nós da lista.
                 n = n - 1;
                 return true;
             } else {
@@ -134,9 +134,9 @@ public class Principal {
     }
 
     /**
-     * Excluir um elemento do final da lista.
+     * Excluir um Nó do final da lista.
      *
-     * @param _lista Lista dos elementos.
+     * @param _lista Lista dos Nós.
      * @return Verdadeiro ou falso se excluiu o valor do final.
      */
     public static boolean excluirFim(int[] _lista) {
@@ -144,9 +144,9 @@ public class Principal {
     }
 
     /**
-     * Excluir um elemento do início da lista.
+     * Excluir um Nó do início da lista.
      *
-     * @param _lista Lista dos elementos.
+     * @param _lista Lista dos Nós.
      * @return Verdadeiro ou falso se excluiu o valor do início.
      */
     public static boolean excluirInicio(int[] _lista) {
@@ -154,16 +154,16 @@ public class Principal {
     }
 
     /**
-     * Excluir um elemento da lista pelo valor.
+     * Excluir um Nó da lista pelo valor.
      *
-     * @param _lista Lista dos elementos.
+     * @param _lista Lista dos Nós.
      * @param _valor Valor a ser excluído da lista.
      * @return Verdadeiro ou falso se excluiu o valor.
      */
     public static boolean excluirValor(int[] _lista, int _valor) {
         if (n != 0) {
             int i = 0;
-            //Procura a posição do elemento na lista.
+            //Procura a posição do Nó na lista.
             //Compara o valor na lista ou até chegar no final da lista.
             while ((i < n) && (_valor != _lista[i])) {
                 i = i + 1;
@@ -184,16 +184,16 @@ public class Principal {
     }
 
     /**
-     * Retorna a posição de um elemento na lista.
+     * Retorna a posição de um Nó na lista.
      *
-     * @param _lista Lista dos elementos.
+     * @param _lista Lista dos Nós.
      * @param _valor Valor a ser procurado na lista.
      * @return A posição de valor na lsita.
      */
     public static int posicaoValor(int[] _lista, int _valor) {
         if (n != 0) {
             int i = 0;
-            //Procura a posição do elemento na lista.
+            //Procura a posição do Nó na lista.
             //Compara o valor na lista ou até chegar no final da lista.
             while ((i < n) && (_valor != _lista[i])) {
                 i = i + 1;
@@ -214,7 +214,7 @@ public class Principal {
      * Lista os dados da lista.
      *
      * @param _lista Lista para exibir os dados.
-     * @param _n Quantidade de elementos da lista.
+     * @param _n Quantidade de Nós da lista.
      * @return Uma String com os dados da lista.
      */
     public static String listar(int[] _lista, int _n) {
@@ -226,7 +226,7 @@ public class Principal {
     }
 
     /**
-     * Mosta na tela a quantidade de elementos da lista
+     * Mosta na tela a quantidade de Nós da lista
      */
     public static void mostrarQuantidade() {
         JOptionPane.showMessageDialog(null, "Quantidade de Nós na lista : " + quantidadeLista());
@@ -251,9 +251,9 @@ public class Principal {
     }
 
     /**
-     * Retorna a quantidade de elementos da lista.
+     * Retorna a quantidade de Nós da lista.
      *
-     * @return A quantidade de elementos da lista.
+     * @return A quantidade de Nós da lista.
      */
     public static int quantidadeLista() {
         return n;
@@ -344,7 +344,7 @@ public class Principal {
                     break;
                 }
                 case 8: {
-                    int k = Integer.parseInt(JOptionPane.showInputDialog("Digite a posicao a ser excluída:"));
+                    int k = Integer.parseInt(JOptionPane.showInputDialog("Digite a posição a ser excluída:"));
                     if (excluirPosicao(lista, k)) {
                         JOptionPane.showMessageDialog(null, "O valor da posição " + k + " foi excluído com Sucesso!");
                     } else {
@@ -353,7 +353,7 @@ public class Principal {
                     break;
                 }
                 case 9: {
-                    int valor = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor do elemento a ser excluído:"));
+                    int valor = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor do Nó a ser excluído:"));
                     if (excluirValor(lista, valor)) {
                         JOptionPane.showMessageDialog(null, "O valor " + valor + " foi excluído com Sucesso!");
                     } else {
