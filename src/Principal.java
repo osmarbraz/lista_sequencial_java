@@ -215,20 +215,21 @@ public class Principal {
      *
      * @param _lista Lista para exibir os dados.
      * @param _n Quantidade de elementos da lista.
+     * @return Uma String com os dados da lista.
      */
-    public static void listar(int[] _lista, int _n) {
+    public static String listar(int[] _lista, int _n) {
         String temp = "";
         for (int i = 0; i < _n; i++) {
             temp = temp + (i) + "-" + _lista[i] + "\n";
         }
-        JOptionPane.showMessageDialog(null, "Listagem \n" + temp);
+        return temp;        
     }
 
     /**
      * Mosta na tela a quantidade de elementos da lista
      */
     public static void mostrarQuantidade() {
-        JOptionPane.showMessageDialog(null, "Quantidade de elementos na lista : " + quantidadeLista());
+        JOptionPane.showMessageDialog(null, "Quantidade de Nós na lista : " + quantidadeLista());
     }
 
     /**
@@ -269,17 +270,17 @@ public class Principal {
         while (opcao != 99) {
             opcao = Integer.parseInt(JOptionPane.showInputDialog("\t### Lista Sequencial ###\n"
                     + "Selecione a opção desejada:\n"
-                    + " 1- Listar elementos\n"
-                    + " 2- Inserir elemento no início\n"
-                    + " 3- Inserir elemento no fim\n"
-                    + " 4- Inserir elemento em uma posição especifica\n"
-                    + " 5- Inserir elemento ordenado\n"
-                    + " 6- Remover elemento do início\n"
-                    + " 7- Remover elemento do fim\n"
-                    + " 8- Remover elemento de uma posição específica\n"
-                    + " 9- Remover elemento pelo valor\n"
-                    + "10- Mostrar a posição de um elemento\n"
-                    + "11- Mostrar a quantidade de elementos\n"
+                    + " 1- Listar Nós\n"
+                    + " 2- Inserir Nó no início\n"
+                    + " 3- Inserir Nó no fim\n"
+                    + " 4- Inserir Nó em uma posição especifica\n"
+                    + " 5- Inserir Nó ordenado\n"
+                    + " 6- Remover Nó do início\n"
+                    + " 7- Remover Nó do fim\n"
+                    + " 8- Remover Nó de uma posição específica\n"
+                    + " 9- Remover Nó pelo valor\n"
+                    + "10- Mostrar a posição de um Nó\n"
+                    + "11- Mostrar a quantidade de Nós\n"
                     + "12- Está cheia?\n"
                     + "13- Está vazia?\n"
                     + "99- Sair\n"));
@@ -287,24 +288,24 @@ public class Principal {
                 case 1: {
                     if (estaVazia()) {
                         JOptionPane.showMessageDialog(null, "Lista vazia!");
-                    } else {
-                        listar(lista, n);
+                    } else {                        
+                        JOptionPane.showMessageDialog(null, "Listagem \n" + listar(lista,n));
                     }
                     break;
                 }
                 case 2: {
                     if (inserirInicio(lista, leitura()) == true) {
-                        JOptionPane.showMessageDialog(null, "Elemento inserido no início com Sucesso!");
+                        JOptionPane.showMessageDialog(null, "Nó inserido no início com Sucesso!");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Elemento não inserido no início!");
+                        JOptionPane.showMessageDialog(null, "Nó não inserido no início!");
                     }
                     break;
                 }
                 case 3: {
                     if (inserirFim(lista, leitura()) == true) {
-                        JOptionPane.showMessageDialog(null, "Elemento inserido no fim com Sucesso!");
+                        JOptionPane.showMessageDialog(null, "Nó inserido no fim com Sucesso!");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Elemento não inserido no fim!");
+                        JOptionPane.showMessageDialog(null, "Nó não inserido no fim!");
                     }
                     break;
                 }
@@ -312,38 +313,38 @@ public class Principal {
                     int k = Integer.parseInt(JOptionPane.showInputDialog("Digite a posicao:"));
                     int novo = leitura();
                     if (inserirPosicao(lista, novo, k) == true) {
-                        JOptionPane.showMessageDialog(null, "Elemento inserido na posição " + k + " com Sucesso!");
+                        JOptionPane.showMessageDialog(null, "Nó inserido na posição " + k + " com Sucesso!");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Elemento não inserido na posição " + k + "!");
+                        JOptionPane.showMessageDialog(null, "Nó não inserido na posição " + k + "!");
                     }
                     break;
                 }
                 case 5: {
                     if (inserirOrdenado(lista, leitura()) == true) {
-                        JOptionPane.showMessageDialog(null, "Elemento inserido ordenado com Sucesso!");
+                        JOptionPane.showMessageDialog(null, "Nó inserido ordenado com Sucesso!");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Elemento não inserido ordenado!");
+                        JOptionPane.showMessageDialog(null, "Nó não inserido ordenado!");
                     }
                     break;
                 }
                 case 6: {
                     if (excluirInicio(lista)) {
-                        JOptionPane.showMessageDialog(null, "O elemento da início foi excluído com Sucesso!");
+                        JOptionPane.showMessageDialog(null, "O Nó do início foi excluído com Sucesso!");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Elemento do início não foi excluído!");
+                        JOptionPane.showMessageDialog(null, "Nó do início não foi excluído!");
                     }
                     break;
                 }
                 case 7: {
                     if (excluirFim(lista)) {
-                        JOptionPane.showMessageDialog(null, "O elemento da fim foi excluído com Sucesso!");
+                        JOptionPane.showMessageDialog(null, "O Nó da fim foi excluído com Sucesso!");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Elemento do fim não foi excluído!");
+                        JOptionPane.showMessageDialog(null, "Nó do fim não foi excluído!");
                     }
                     break;
                 }
                 case 8: {
-                    int k = Integer.parseInt(JOptionPane.showInputDialog("Digite a posicao:"));
+                    int k = Integer.parseInt(JOptionPane.showInputDialog("Digite a posicao a ser excluída:"));
                     if (excluirPosicao(lista, k)) {
                         JOptionPane.showMessageDialog(null, "O valor da posição " + k + " foi excluído com Sucesso!");
                     } else {
@@ -352,7 +353,7 @@ public class Principal {
                     break;
                 }
                 case 9: {
-                    int valor = Integer.parseInt(JOptionPane.showInputDialog("Digite o elemento:"));
+                    int valor = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor do elemento a ser excluído:"));
                     if (excluirValor(lista, valor)) {
                         JOptionPane.showMessageDialog(null, "O valor " + valor + " foi excluído com Sucesso!");
                     } else {
@@ -361,9 +362,9 @@ public class Principal {
                     break;
                 }
                 case 10: {
-                    int novo = leitura();
-                    int posicao = posicaoValor(lista, novo);
-                    JOptionPane.showMessageDialog(null, "O valor " + novo + " esta na posição " + posicao);
+                    int valor = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor a ser procurado:"));
+                    int posicao = posicaoValor(lista, valor);
+                    JOptionPane.showMessageDialog(null, "O valor " + valor + " esta na posição " + posicao);
                     break;
                 }
                 case 11: {
@@ -371,11 +372,11 @@ public class Principal {
                     break;
                 }
                 case 12: {
-                    JOptionPane.showMessageDialog(null, "Está cheia : " + estaCheia());
+                    JOptionPane.showMessageDialog(null, "Lista está cheia : " + estaCheia());
                     break;
                 }
                 case 13: {
-                    JOptionPane.showMessageDialog(null, "Está vazia : " + estaVazia());
+                    JOptionPane.showMessageDialog(null, "Lista está vazia : " + estaVazia());
                     break;
                 }
             }
