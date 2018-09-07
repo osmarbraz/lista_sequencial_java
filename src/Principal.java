@@ -24,8 +24,32 @@ public class Principal {
     public static int leitura() {
         return Integer.parseInt(JOptionPane.showInputDialog("Digite um valor:"));
     }
-
+   
     /**
+     * Insere um Nó no início da lista.
+     *
+     * @param lista Lista dos Nós.
+     * @param novo Novo valor a ser inserido.
+     * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
+     */
+    public static boolean inserirInicio(int[] lista, int novo) {
+        if (n < TAMANHO_LISTA) {
+            //Desloca os Nós do fim até a posição 0
+            for (int i = n - 1; i >= 0; i--) {
+                lista[i + 1] = lista[i];
+            }
+            //Insere o novo valor na posição 0.
+            lista[0] = novo;
+            //Incrementa a quantidade de Nós.
+            n = n + 1;
+            return true;
+        } else {
+            System.out.print("A lista está cheia!\n");
+        }
+        return false;
+    }
+
+     /**
      * Insere um Nó em uma posição especifica da lista.
      *
      * @param lista Lista dos nós.
@@ -55,18 +79,7 @@ public class Principal {
             return false;
         }
     }
-
-    /**
-     * Insere um Nó no início da lista.
-     *
-     * @param lista Lista dos Nós.
-     * @param novo Novo valor a ser inserido.
-     * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
-     */
-    public static boolean inserirInicio(int[] lista, int novo) {
-        return inserirPosicao(lista, novo, 0);
-    }
-
+    
     /**
      * Insere um Nó no final da lista.
      *
@@ -75,12 +88,21 @@ public class Principal {
      * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
      */
     public static boolean inserirFim(int[] lista, int novo) {
-        return inserirPosicao(lista, novo, n);
+        if (n < TAMANHO_LISTA) {
+            //Insere o novo valor na posição n.
+            lista[n] = novo;
+            //Incrementa a quantidade de Nós.
+            n = n + 1;
+            return true;
+        } else {
+            System.out.print("A lista está cheia!\n");
+        }
+        return false;
     }
 
     /**
-     * Inclui de forma ordenado um Nó na lista levando em consideração o
-     * seu valor.
+     * Inclui de forma ordenado um Nó na lista levando em consideração o seu
+     * valor.
      *
      * @param lista Lista dos Nós.
      * @param novo Novo valor a ser inserido.
@@ -89,23 +111,49 @@ public class Principal {
      */
     public static boolean inserirOrdenado(int[] lista, int novo) {
         if (n < TAMANHO_LISTA) {
-            int i = 0;
-            while ((i < n) && (novo > lista[i])) {
-                i = i + 1;
+            int j = 0;
+            while ((j < n) && (novo > lista[j])) {
+                j = j + 1;
             }
-            if (i <= n) {
-                return inserirPosicao(lista, novo, i);
-            } else {
-                System.out.print("Posição Inválida!");
-                return false;
+            if (j <= n) {
+                //Desloca os Nós do fim até a posição j
+                for (int i = n - 1; i >= j; i--) {
+                    lista[i + 1] = lista[i];
+                }
+                //Insere o novo valor na posição j
+                lista[j] = novo;
+                //Incrementa a quantidade de Nós.
+                n = n + 1;
+                return true;
             }
         } else {
             System.out.print("A lista está cheia!\n");
+        }
+        return false;
+    }
+
+    /**
+     * Excluir um Nó do início da lista.
+     *
+     * @param lista Lista dos Nós.
+     * @return Verdadeiro ou falso se excluiu o valor do início.
+     */
+    public static boolean excluirInicio(int[] lista) {
+        if (n != 0) {
+            //Desloca os Nós do fim até a posição k da lista.
+            for (int i = 0; i < n; i++) {
+                lista[i] = lista[i + 1];
+            }
+            //Decrementa a quantidade de Nós da lista.
+            n = n - 1;
+            return true;
+        } else {
+            System.out.print("A lista está vazia!\n");
             return false;
         }
     }
 
-    /**
+     /**
      * Excluir um Nó da lista pela posição.
      *
      * @param lista Lista com os valores.
@@ -124,7 +172,7 @@ public class Principal {
                 n = n - 1;
                 return true;
             } else {
-                System.out.print("Posicao invalida!\n");
+                System.out.print("Posição inválida!\n");
                 return false;
             }
         } else {
@@ -132,7 +180,7 @@ public class Principal {
             return false;
         }
     }
-
+    
     /**
      * Excluir um Nó do final da lista.
      *
@@ -140,19 +188,18 @@ public class Principal {
      * @return Verdadeiro ou falso se excluiu o valor do final.
      */
     public static boolean excluirFim(int[] lista) {
-        return excluirPosicao(lista, n - 1);
+        if (n != 0) {
+            //atribui 0 para posição final
+            lista[n-1] = 0;
+            //Decrementa a quantidade de Nós da lista.
+            n = n - 1;
+            return true;
+        } else {
+            System.out.print("A lista está vazia!\n");
+            return false;
+        }
     }
-
-    /**
-     * Excluir um Nó do início da lista.
-     *
-     * @param lista Lista dos Nós.
-     * @return Verdadeiro ou falso se excluiu o valor do início.
-     */
-    public static boolean excluirInicio(int[] lista) {
-        return excluirPosicao(lista, 0);
-    }
-
+    
     /**
      * Excluir um Nó da lista pelo valor.
      *
@@ -162,16 +209,20 @@ public class Principal {
      */
     public static boolean excluirValor(int[] lista, int valor) {
         if (n != 0) {
-            int i = 0;
+            int j = 0;
             //Procura a posição do Nó na lista.
             //Compara o valor na lista ou até chegar no final da lista.
-            while ((i < n) && (valor != lista[i])) {
-                i = i + 1;
+            while ((j < n) && (valor != lista[j])) {
+                j = j + 1;
             }
             //Verifica se a posição esta dentro do intervalo da lista
-            if (i < n) {
-                //Chama o método excluir para a posição i
-                excluirPosicao(lista, i);
+            if (j < n) {
+                //Desloca os Nós do fim até a posição j da lista.
+                for (int i = j; i < n; i++) {
+                    lista[i] = lista[i + 1];
+                }
+                //Decrementa a quantidade de Nós da lista.
+                n = n - 1;
                 return true;
             } else {
                 System.out.print("Valor nao existe na lista!\n");
@@ -222,7 +273,7 @@ public class Principal {
         for (int i = 0; i < n; i++) {
             temp = temp + (i) + "-" + lista[i] + "\n";
         }
-        return temp;        
+        return temp;
     }
 
     /**
@@ -288,8 +339,8 @@ public class Principal {
                 case 1: {
                     if (estaVazia()) {
                         JOptionPane.showMessageDialog(null, "Lista vazia!");
-                    } else {                        
-                        JOptionPane.showMessageDialog(null, "Listagem \n" + listar(lista,n));
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Listagem \n" + listar(lista, n));
                     }
                     break;
                 }
