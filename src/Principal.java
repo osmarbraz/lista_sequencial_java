@@ -44,7 +44,7 @@ public class Principal {
             n = n + 1;
             return true;
         } else {
-            System.out.println("Inserir início - Lista está cheia");
+            System.out.println("Inserir início - Lista cheia");
             return false;
         }
     }
@@ -384,7 +384,7 @@ public class Principal {
                     break;
                 }
                 case 4: {
-                    int k = Integer.parseInt(JOptionPane.showInputDialog("Digite a posicao:"));
+                    int k = Integer.parseInt(JOptionPane.showInputDialog("Digite a posição a ser inserido:"));
                     //Preenche o valor do dado
                     int dado = leitura();
                     if (inserirPosicao(lista, dado, k) == true) {
@@ -431,7 +431,7 @@ public class Principal {
                 }
                 case 9: {
                     //Preenche o valor do dado                    
-                    int dado = Integer.parseInt(JOptionPane.showInputDialog("Digite o dado a ser excluído:"));
+                    int dado = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor do dado a ser excluído:"));
                     if (excluirValor(lista, dado)) {
                         JOptionPane.showMessageDialog(null, "O valor " + dado + " foi excluído com Sucesso!");
                     } else {
@@ -450,7 +450,7 @@ public class Principal {
                     break;
                 }
                 case 11: {
-                    int chave = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor a ser procurado:"));
+                    int chave = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor do dado a ser procurado:"));
                     int posicao = procurarValor(lista, chave);
                     JOptionPane.showMessageDialog(null, "O valor " + chave + " esta na posição " + posicao);
                     break;
