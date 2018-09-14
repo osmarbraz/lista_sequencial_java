@@ -337,6 +337,7 @@ public class Principal {
         int opcao = -1;
 
         while (opcao != 99) {
+            //Monta o menu de opções
             opcao = Integer.parseInt(JOptionPane.showInputDialog("\t### Lista Sequencial ###\n"
                     + "Selecione a opção desejada:\n"
                     + " 1- Listar Nós\n"
