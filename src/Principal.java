@@ -467,7 +467,7 @@ public class Principal {
                     JOptionPane.showMessageDialog(null, "Lista está vazia : " + estaVazia());
                     break;
                 }
-            }
-        }
-    }
+            }//Fim Switch
+        }//Fim While
+    }//Fim main
 }
