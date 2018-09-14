@@ -323,7 +323,7 @@ public class Principal {
      *
      * @return A quantidade de Nós da lista.
      */
-    public static int quantidadeLista() {
+    public static int getN() {
         return n;
     }
 
@@ -456,7 +456,7 @@ public class Principal {
                     break;
                 }
                 case 12: {
-                    JOptionPane.showMessageDialog(null, "Quantidade de Nós na lista : " + quantidadeLista());
+                    JOptionPane.showMessageDialog(null, "Quantidade de Nós na lista : " + getN());
                     break;
                 }
                 case 13: {
