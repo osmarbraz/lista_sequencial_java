@@ -24,7 +24,7 @@ public class Principal {
     public static int leitura() {
         return Integer.parseInt(JOptionPane.showInputDialog("Digite um valor:"));
     }
-   
+
     /**
      * Insere um Nó no início da lista.
      *
@@ -44,12 +44,12 @@ public class Principal {
             n = n + 1;
             return true;
         } else {
-            System.out.print("A lista está cheia!\n");
+            System.out.println("Inserir início - Lista está cheia");
+            return false;
         }
-        return false;
     }
 
-     /**
+    /**
      * Insere um Nó em uma posição especifica da lista.
      *
      * @param lista Lista dos nós.
@@ -71,15 +71,15 @@ public class Principal {
                 n = n + 1;
                 return true;
             } else {
-                System.out.print("Posição inválida!\n");
+                System.out.println("Inserir Posição - Posição inválida.");
                 return false;
             }
         } else {
-            System.out.print("A lista está cheia!\n");
+            System.out.println("Inserir Posição - Lista cheia.");
             return false;
         }
     }
-    
+
     /**
      * Insere um Nó no final da lista.
      *
@@ -95,9 +95,9 @@ public class Principal {
             n = n + 1;
             return true;
         } else {
-            System.out.print("A lista está cheia!\n");
+            System.out.println("Inserir Fim - Lista cheia.");
+            return false;
         }
-        return false;
     }
 
     /**
@@ -126,10 +126,11 @@ public class Principal {
                 n = n + 1;
                 return true;
             }
+            return false;
         } else {
-            System.out.print("A lista está cheia!\n");
+            System.out.println("Inserir Ordenado - Lista cheia.");
+            return false;
         }
-        return false;
     }
 
     /**
@@ -148,12 +149,12 @@ public class Principal {
             n = n - 1;
             return true;
         } else {
-            System.out.print("A lista está vazia!\n");
+            System.out.println("Excluir início - Lista vazia.");
             return false;
         }
     }
 
-     /**
+    /**
      * Excluir um Nó da lista pela posição.
      *
      * @param lista Lista com os valores.
@@ -172,15 +173,15 @@ public class Principal {
                 n = n - 1;
                 return true;
             } else {
-                System.out.print("Posição inválida!\n");
+                System.out.println("Excluir início - Posição inválida.");
                 return false;
             }
         } else {
-            System.out.print("A lista está vazia!\n");
+            System.out.println("Excluir posição - Lista vazia.");
             return false;
         }
     }
-    
+
     /**
      * Excluir um Nó do final da lista.
      *
@@ -190,16 +191,16 @@ public class Principal {
     public static boolean excluirFim(int[] lista) {
         if (n != 0) {
             //atribui 0 para posição final
-            lista[n-1] = 0;
+            lista[n - 1] = 0;
             //Decrementa a quantidade de Nós da lista.
             n = n - 1;
             return true;
         } else {
-            System.out.print("A lista está vazia!\n");
+            System.out.println("Excluir fim - Lista vazia.");
             return false;
         }
     }
-    
+
     /**
      * Excluir um Nó da lista pelo valor.
      *
@@ -225,12 +226,34 @@ public class Principal {
                 n = n - 1;
                 return true;
             } else {
-                System.out.print("Valor nao existe na lista!\n");
+                System.out.println("Excluir valor - Valor não esta na lista.");
                 return false;
             }
         } else {
-            System.out.print("Lista Vazia!");
+            System.out.println("Excluir valor - Lista vazia.");
             return false;
+        }
+    }
+
+    /**
+     * Retorna o dado de uma posição na lista.
+     *
+     * @param lista Lista dos Nós.
+     * @param k Posição do nó a ser consultada na lista.
+     * @return A posição de valor na lsita.
+     */
+    public static int procurarPosicao(int[] lista, int k) {
+        if (n != 0) {
+            //Verifica se a posição esta dentro do intervalo da lista
+            if ((k >= 0) && (k < n)) {
+                return lista[k];
+            } else {
+                System.out.println("Procurar posição - Posição inválida.");
+                return -1;
+            }
+        } else {
+            System.out.println("Procurar posição - Lista vazia.");
+            return -1;
         }
     }
 
@@ -241,7 +264,7 @@ public class Principal {
      * @param valor Valor a ser procurado na lista.
      * @return A posição de valor na lsita.
      */
-    public static int posicaoValor(int[] lista, int valor) {
+    public static int procurarValor(int[] lista, int valor) {
         if (n != 0) {
             int i = 0;
             //Procura a posição do Nó na lista.
@@ -256,7 +279,7 @@ public class Principal {
                 return -1;
             }
         } else {
-            System.out.print("Lista Vazia!");
+            System.out.println("Procurar valor - Lista vazia.");
             return -1;
         }
     }
@@ -269,13 +292,14 @@ public class Principal {
      * @return Uma String com os dados da lista.
      */
     public static String listar(int[] lista, int n) {
+        //String de retorno
         String temp = "";
         for (int i = 0; i < n; i++) {
             temp = temp + (i) + "-" + lista[i] + "\n";
         }
         return temp;
     }
-   
+
     /**
      * Retorna se a lista está cheia.
      *
@@ -308,6 +332,7 @@ public class Principal {
          * Declaração da lista
          */
         int lista[] = new int[TAMANHO_LISTA];
+
         // Controla o menu da lista
         int opcao = -1;
 
@@ -323,10 +348,11 @@ public class Principal {
                     + " 7- Remover Nó do fim\n"
                     + " 8- Remover Nó de uma posição específica\n"
                     + " 9- Remover Nó pelo valor\n"
-                    + "10- Mostrar a posição de um Nó\n"
-                    + "11- Mostrar a quantidade de Nós\n"
-                    + "12- Está cheia?\n"
-                    + "13- Está vazia?\n"
+                    + "10- Procurar o dado de uma posição específica\n"
+                    + "11- Procurar a posição de um dado\n"
+                    + "12- Mostrar a quantidade de Nós\n"
+                    + "13- Está cheia?\n"
+                    + "14- Está vazia?\n"
                     + "99- Sair\n"));
             switch (opcao) {
                 case 1: {
@@ -338,7 +364,9 @@ public class Principal {
                     break;
                 }
                 case 2: {
-                    if (inserirInicio(lista, leitura()) == true) {
+                    //Preenche o valor do dado
+                    int dado = leitura();
+                    if (inserirInicio(lista, dado) == true) {
                         JOptionPane.showMessageDialog(null, "Nó inserido no início com Sucesso!");
                     } else {
                         JOptionPane.showMessageDialog(null, "Nó não inserido no início!");
@@ -346,7 +374,9 @@ public class Principal {
                     break;
                 }
                 case 3: {
-                    if (inserirFim(lista, leitura()) == true) {
+                    //Preenche o valor do dado
+                    int dado = leitura();
+                    if (inserirFim(lista, dado) == true) {
                         JOptionPane.showMessageDialog(null, "Nó inserido no fim com Sucesso!");
                     } else {
                         JOptionPane.showMessageDialog(null, "Nó não inserido no fim!");
@@ -355,8 +385,9 @@ public class Principal {
                 }
                 case 4: {
                     int k = Integer.parseInt(JOptionPane.showInputDialog("Digite a posicao:"));
-                    int novo = leitura();
-                    if (inserirPosicao(lista, novo, k) == true) {
+                    //Preenche o valor do dado
+                    int dado = leitura();
+                    if (inserirPosicao(lista, dado, k) == true) {
                         JOptionPane.showMessageDialog(null, "Nó inserido na posição " + k + " com Sucesso!");
                     } else {
                         JOptionPane.showMessageDialog(null, "Nó não inserido na posição " + k + "!");
@@ -364,7 +395,9 @@ public class Principal {
                     break;
                 }
                 case 5: {
-                    if (inserirOrdenado(lista, leitura()) == true) {
+                    //Preenche o valor do dado
+                    int dado = leitura();
+                    if (inserirOrdenado(lista, dado) == true) {
                         JOptionPane.showMessageDialog(null, "Nó inserido ordenado com Sucesso!");
                     } else {
                         JOptionPane.showMessageDialog(null, "Nó não inserido ordenado!");
@@ -397,29 +430,40 @@ public class Principal {
                     break;
                 }
                 case 9: {
-                    int valor = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor do Nó a ser excluído:"));
-                    if (excluirValor(lista, valor)) {
-                        JOptionPane.showMessageDialog(null, "O valor " + valor + " foi excluído com Sucesso!");
+                    //Preenche o valor do dado                    
+                    int dado = Integer.parseInt(JOptionPane.showInputDialog("Digite o dado a ser excluído:"));
+                    if (excluirValor(lista, dado)) {
+                        JOptionPane.showMessageDialog(null, "O valor " + dado + " foi excluído com Sucesso!");
                     } else {
                         JOptionPane.showMessageDialog(null, "Valor não foi excluído!");
                     }
                     break;
                 }
                 case 10: {
-                    int valor = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor a ser procurado:"));
-                    int posicao = posicaoValor(lista, valor);
-                    JOptionPane.showMessageDialog(null, "O valor " + valor + " esta na posição " + posicao);
+                    int k = Integer.parseInt(JOptionPane.showInputDialog("Digite a posição do dado a ser procurada:"));
+                    int dado = procurarPosicao(lista, k);
+                    if (dado != -1) {
+                        JOptionPane.showMessageDialog(null, "O valor da posição " + k + "  possui o dado = " + dado);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "A posição " + k + " não está preenchida");
+                    }
                     break;
                 }
                 case 11: {
-                     JOptionPane.showMessageDialog(null, "Quantidade de Nós na lista : " + quantidadeLista());
+                    int chave = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor a ser procurado:"));
+                    int posicao = procurarValor(lista, chave);
+                    JOptionPane.showMessageDialog(null, "O valor " + chave + " esta na posição " + posicao);
                     break;
                 }
                 case 12: {
-                    JOptionPane.showMessageDialog(null, "Lista está cheia : " + estaCheia());
+                    JOptionPane.showMessageDialog(null, "Quantidade de Nós na lista : " + quantidadeLista());
                     break;
                 }
                 case 13: {
+                    JOptionPane.showMessageDialog(null, "Lista está cheia : " + estaCheia());
+                    break;
+                }
+                case 14: {
                     JOptionPane.showMessageDialog(null, "Lista está vazia : " + estaVazia());
                     break;
                 }
