@@ -275,14 +275,7 @@ public class Principal {
         }
         return temp;
     }
-
-    /**
-     * Mosta na tela a quantidade de Nós da lista
-     */
-    public static void mostrarQuantidade() {
-        JOptionPane.showMessageDialog(null, "Quantidade de Nós na lista : " + quantidadeLista());
-    }
-
+   
     /**
      * Retorna se a lista está cheia.
      *
@@ -419,7 +412,7 @@ public class Principal {
                     break;
                 }
                 case 11: {
-                    mostrarQuantidade();
+                     JOptionPane.showMessageDialog(null, "Quantidade de Nós na lista : " + quantidadeLista());
                     break;
                 }
                 case 12: {
