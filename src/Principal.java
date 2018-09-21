@@ -29,17 +29,17 @@ public class Principal {
      * Insere um Nó no início da lista.
      *
      * @param lista Lista dos Nós.
-     * @param novo Novo valor a ser inserido.
+     * @param valor Um novo valor de um nó a ser inserido na lista.
      * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
      */
-    public static boolean inserirInicio(int[] lista, int novo) {
+    public static boolean inserirInicio(int[] lista, int valor) {
         if (n < TAMANHO_LISTA) {
             //Desloca os Nós do fim até a posição 0
             for (int i = n - 1; i >= 0; i--) {
                 lista[i + 1] = lista[i];
             }
             //Insere o novo valor na posição 0.
-            lista[0] = novo;
+            lista[0] = valor;
             //Incrementa a quantidade de Nós.
             n = n + 1;
             return true;
@@ -53,11 +53,11 @@ public class Principal {
      * Insere um Nó em uma posição especifica da lista.
      *
      * @param lista Lista dos nós.
-     * @param novo Novo valor a ser inserido.
+     * @param valor Um novo valor de um nó a ser inserido na lista.
      * @param k Posição a ser inserida o valor.
      * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
      */
-    public static boolean inserirPosicao(int[] lista, int novo, int k) {
+    public static boolean inserirPosicao(int[] lista, int valor, int k) {
         if (n < TAMANHO_LISTA) {
             //Verifica se a posição está no intervalo de valores da lista.
             if ((k >= 0) && (k <= n)) {
@@ -66,7 +66,7 @@ public class Principal {
                     lista[i + 1] = lista[i];
                 }
                 //Insere o novo valor na posição k.
-                lista[k] = novo;
+                lista[k] = valor;
                 //Incrementa a quantidade de Nós.
                 n = n + 1;
                 return true;
@@ -84,13 +84,13 @@ public class Principal {
      * Insere um Nó no final da lista.
      *
      * @param lista Lista dos Nós.
-     * @param novo Novo valor a ser inserido.
+     * @param valor Um novo valor de um nó a ser inserido na lista.
      * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
      */
-    public static boolean inserirFim(int[] lista, int novo) {
+    public static boolean inserirFim(int[] lista, int valor) {
         if (n < TAMANHO_LISTA) {
             //Insere o novo valor na posição n.
-            lista[n] = novo;
+            lista[n] = valor;
             //Incrementa a quantidade de Nós.
             n = n + 1;
             return true;
@@ -105,14 +105,14 @@ public class Principal {
      * valor.
      *
      * @param lista Lista dos Nós.
-     * @param novo Novo valor a ser inserido.
+     * @param valor Um novo valor de um nó a ser inserido na lista.
      *
      * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
      */
-    public static boolean inserirOrdenado(int[] lista, int novo) {
+    public static boolean inserirOrdenado(int[] lista, int valor) {
         if (n < TAMANHO_LISTA) {
             int j = 0;
-            while ((j < n) && (novo > lista[j])) {
+            while ((j < n) && (valor > lista[j])) {
                 j = j + 1;
             }
             if (j <= n) {
@@ -121,7 +121,7 @@ public class Principal {
                     lista[i + 1] = lista[i];
                 }
                 //Insere o novo valor na posição j
-                lista[j] = novo;
+                lista[j] = valor;
                 //Incrementa a quantidade de Nós.
                 n = n + 1;
                 return true;
@@ -157,7 +157,7 @@ public class Principal {
     /**
      * Excluir um Nó da lista pela posição.
      *
-     * @param lista Lista com os valores.
+     * @param lista Lista dos Nós.
      * @param k Posição do Nó a ser excluído da lista.
      * @return Verdadeiro ou falso se excluiu o valor da posição.
      */
@@ -205,7 +205,7 @@ public class Principal {
      * Excluir um Nó da lista pelo valor.
      *
      * @param lista Lista dos Nós.
-     * @param valor Valor a ser excluído da lista.
+     * @param valor Um valor de um nó a ser excluído da lista.
      * @return Verdadeiro ou falso se excluiu o valor.
      */
     public static boolean excluirValor(int[] lista, int valor) {
@@ -239,7 +239,7 @@ public class Principal {
      * Retorna o dado de uma posição na lista.
      *
      * @param lista Lista dos Nós.
-     * @param k Posição do nó a ser consultada na lista.
+     * @param k Posição do nó a ser consultado na lista.
      * @return A posição de valor na lsita.
      */
     public static int procurarPosicao(int[] lista, int k) {
@@ -287,7 +287,7 @@ public class Principal {
     /**
      * Lista os dados da lista.
      *
-     * @param lista Lista para exibir os dados.
+     * @param lista Lista dos Nós.
      * @param n Quantidade de Nós da lista.
      * @return Uma String com os dados da lista.
      */
@@ -323,7 +323,7 @@ public class Principal {
      *
      * @return A quantidade de Nós da lista.
      */
-    public static int getN() {
+    public static int getQuantidade() {
         return n;
     }
 
@@ -457,7 +457,7 @@ public class Principal {
                     break;
                 }
                 case 12: {
-                    JOptionPane.showMessageDialog(null, "Quantidade de Nós na lista : " + getN());
+                    JOptionPane.showMessageDialog(null, "Quantidade de Nós na lista : " + getQuantidade());
                     break;
                 }
                 case 13: {
