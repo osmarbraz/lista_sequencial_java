@@ -12,7 +12,7 @@ public class Principal {
      */
     private static final int TAMANHO_LISTA = 100;
     /**
-     * Tamanho atual da fila.
+     * Tamanho atual da lista.
      */
     private static int n = 0;
 
