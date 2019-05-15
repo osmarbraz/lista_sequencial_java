@@ -306,7 +306,7 @@ public class Principal {
      * @return Verdadeiro ou falso se a lista está cheia.
      */
     public static boolean estaCheia() {
-        return n == TAMANHO_LISTA;
+        return (n == TAMANHO_LISTA);
     }
 
     /**
@@ -315,7 +315,7 @@ public class Principal {
      * @return Verdadeiro ou falso se a lista está vazia.
      */
     public static boolean estaVazia() {
-        return n == 0;
+        return (n == 0);
     }
 
     /**
@@ -336,6 +336,7 @@ public class Principal {
         // Controla o menu da lista
         int opcao = -1;
 
+        //Laço do menu de opções
         while (opcao != 99) {
             //Monta o menu de opções
             opcao = Integer.parseInt(JOptionPane.showInputDialog("\t### Lista Sequencial ###\n"
