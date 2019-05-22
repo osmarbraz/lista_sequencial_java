@@ -469,6 +469,16 @@ public class Principal {
                     JOptionPane.showMessageDialog(null, "Lista está vazia : " + estaVazia());
                     break;
                 }
+                //Opção de saída do programa
+                case 99: {
+                    System.out.println("Saindo do programa!");
+                    break;
+                }
+                //Opção inválida do menu
+                default: {
+                    System.out.println("Opção inválida!");
+                    break;
+                }                
             }//Fim switch
         }//Fim while
     }//Fim main
