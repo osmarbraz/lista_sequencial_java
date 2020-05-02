@@ -1,5 +1,5 @@
 # Implementação Lista utilizando estrutura sequencial(vetor) de forma estruturada em Java.
-Operações iimplementadas:<br>
+Operações implementadas:<br>
 - 1 - Listar Nós<br>
 - 2 - Inserir Nó no início<br>
 - 3 - Inserir Nó em uma posição especifica<br>
